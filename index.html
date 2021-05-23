@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="bootstrap.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <title>Jogo da Memória</title>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <Button class="btn btn-danger mb-4" @click="refresh">Novo Jogo</Button>
+        </div>
+        <div class="col">
+          <h1>Pontos Jogador 1: <span class="text-danger">{{points[1]}}</span></h1>
+          <h1>Pontos Jogador 2: <span class="text-danger">{{points[2]}}</span></h1>
+          <h1>Vez do Jogador: <span class="text-danger">{{player}}</span></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6" v-for="card in cards">
+          <a class="card" style="width: 9rem; height: 14rem" @click="onFlipCard(card)">
+            <img src="images/00.jpeg" class="card-img-top" alt="Click para virar" v-if="!card.flipped">
+            <img :src="card.image" class="card-img-top card-hidden" alt="Click para virar" v-if="card.flipped">
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="vue.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
+  <script src="scripts.js"></script>
+</body>
+
+</html>
